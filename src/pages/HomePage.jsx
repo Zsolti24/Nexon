@@ -1,7 +1,72 @@
 import React, { useState, useEffect } from 'react'
 import Scomponent from "../components/SliderComponent"
+// import { google } from 'googleapis'
+// import { google } from 'google-auth-library';
+
+import axios from 'axios';
 
 export default function HomePage() {
+    
+    // async function getServerSideProps(){
+        
+    //     const auth = await google.auth.getClient({ scopes:['https://www.googleapis.com/auth/spreadsheets.readonly'] })
+    //     const sheets = google.sheets({ version: 'v4', auth});
+    //     const range = `Sheet1!A5`;
+        
+    //     const response = await sheets.spreadsheets.values.get({
+    //         spreadsheetId: process.env.SHEET_ID,
+    //         range,
+    //     })
+        
+    //     console.log(response.data.values);
+    // }
+    // async function updateCell() {
+        // const { AuthClient } = require('google-auth-library');
+
+        // const auth = await google.auth.getClient({ scopes:['https://www.googleapis.com/auth/spreadsheets.readonly'] })
+        // const sheets = google.sheets({ version: 'v4', auth});
+
+        // const { id } = querry;
+        // const range = 'Sheet1!A6';
+
+        // const response = await sheets.spreadsheets.values.get({
+        //     spreadsheetId: process.env.SHEET_ID,
+        //     range,
+        // });
+        // const [title, content] = response.data.values[0];
+        // console.log(title);
+    // }
+
+    // const axios = require('axios');
+    // const { google } = require('googleapis');
+
+    // async function updateCell() {
+    //     const auth = await google.auth.getClient({ scopes:['https://www.googleapis.com/auth/spreadsheets.readonly'] })
+    //     try {
+    //       const client = await auth.getClient();
+    //       const sheets = google.sheets({ version: 'v4', auth: client });
+      
+    //       const spreadsheetId = 'YOUR_SPREADSHEET_ID'; // Replace with your spreadsheet ID
+    //       const range = 'Sheet1!A6'; // Assuming you want to update cell A6 on Sheet1
+    //       const valueInputOption = 'USER_ENTERED';
+      
+    //       const request = {
+    //         spreadsheetId: spreadsheetId,
+    //         range: range,
+    //         valueInputOption: valueInputOption,
+    //         resource: {
+    //           values: [['New Value']], // Replace 'New Value' with the data you want to insert
+    //         },
+    //       };
+      
+    //       const response = await sheets.spreadsheets.values.update(request);
+    //       console.log('Cell updated:', response.data);
+    //     } catch (error) {
+    //       console.error('Error updating cell:', error);
+    //     }
+    //   }
+
+
 
     const [money, setValue] = useState([0, 0, 0, 0]);
     const [sum, setSum] = useState(0);
