@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect} from 'react';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import Typography from '@mui/material/Typography';
@@ -20,13 +20,16 @@ const marks = [
   },
 ];
 
-export default function SliderComponent({ index, money, setValue, name, foundationDescription }) {
+export default function SliderComponent({ index, money, setValue, name, foundationDescription, sum}) {
   const [popUpClicked, setPopUpClicked] = useState(false);
   const [val, setVal] = useState(MIN);
 
+  useEffect(() => {
+    setVal(money[index]);
+  }, [money]);
+
   const handlePop = () =>{
     setPopUpClicked(true);
-
   }  
   const closePop = () =>{
     setPopUpClicked(false);
@@ -34,12 +37,14 @@ export default function SliderComponent({ index, money, setValue, name, foundati
 
 
   const handleChange = (_, newValue) => {
-    setVal(newValue);
-    setValue((prevItems) => {
-      const newItems = [...prevItems];
-      newItems[index] = newValue;
-      return newItems;
-    });
+    if(!(sum == 3000000 && newValue>val) ){
+      setVal(newValue);
+      setValue((prevItems) => {
+        const newItems = [...prevItems];
+        newItems[index] = newValue;
+        return newItems;
+      });
+    }
   };
 
 
