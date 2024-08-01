@@ -25,14 +25,10 @@ export default function HomePage() {
                 {names.map((name, i) => (
                     <Scomponent key={i} index={i} money={money} setValue={setValue} name={name} foundationDescription={foundationDescription[i]}/>
                 ))}
-                <div className="a">{money[0]}</div>
-                <div className="a">{money[1]}</div>
-                <div className="a">{money[2]}</div>
-                <div className="a">{money[3]}</div>
             </div>
         </div>
         <div className="bImgContainer">
-            {/* <img src='../images/bg.png' alt="img" className='bImg'/> */}
+            <img src='../images/bg.png' alt="img" className='bImg'/>
         </div>
     </>
   )

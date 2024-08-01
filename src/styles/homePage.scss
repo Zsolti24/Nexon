@@ -1,6 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
 .homePage{
     position: relative;
     display: flex;
@@ -37,7 +35,7 @@
     font-size: 4em;
     font-family: "Roboto", sans-serif;
     border-radius: 100px;
-    margin-top: 750px;
+    margin-top: 600px;
 }
 .description{
     color: #363763;
@@ -47,11 +45,5 @@
     text-align: center;
     font-family: "Roboto", sans-serif;
     margin-top: 50px;
-}
-.slidersContainer{
-    color: black; 
-
-}
-.teszt{
-    color: black;
+    margin-bottom: 10px;
 }

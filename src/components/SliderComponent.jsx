@@ -20,7 +20,7 @@ const marks = [
   },
 ];
 
-export default function SliderComponent({ index, money, setValue }) {
+export default function SliderComponent({ index, money, setValue, name, foundationDescription }) {
   const [val, setVal] = useState(MIN);
 
   const handleChange = (_, newValue) => {
@@ -35,7 +35,10 @@ export default function SliderComponent({ index, money, setValue }) {
 
   return (
     <div className='SliderElement'>
-      <Box sx={{ width: 1500 }}>
+      <div className="moneyShow">
+        { val == 0 ? "0" : val} Ft
+      </div>
+      <Box sx={{ width: '100%' }}>
         <Slider
           marks={marks}
           step={step}
@@ -49,12 +52,17 @@ export default function SliderComponent({ index, money, setValue }) {
               backgroundColor: 'transparent',
               backgroundImage: `url('../../public/images/sled.png')`, 
               backgroundSize: 'cover',
-              width: 100,
-              height: 50,
+              width: 200,
+              height: 100,
               borderRadius: 0,
+              position:'relative',
+              zIndex:10,
               border: 'none',
               boxShadow: 'none',
               '&:focus, &:active': {
+                boxShadow: 'none',
+              },
+              '&:hover': {
                 boxShadow: 'none',
               },
             },
@@ -62,13 +70,19 @@ export default function SliderComponent({ index, money, setValue }) {
               opacity: 0,
             },
             '& .MuiSlider-rail': {
-              height: 50,
-              backgroundImage: `url('../../public/images/ho1.png')`, // Path to your track image
-              backgroundSize: 'cover',
-              backgroundColor: 'transparent',
+              height: 150,
+              width: '100%',
+             backgroundColor: 'transparent',
             },
           }}
         />
+        <div className="trackImgContainer">
+          <img src={`../../public/images/ho${index +1 }.png`} className='trackImg'/>
+          <div className="onTrackPart">
+            <img src={`../../public/images/infBtns.png`} className='infoButtons'/>
+            <div className="FName">{name}</div>
+          </div>
+        </div>
         <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <Typography
             variant="body2"
