@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.homePage{
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+
+.bImgContainer{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+}
+.bImg{
+    object-fit: cover;
+    width: 100%;
+}
+
+
+.pageTitle{
+    color: #006289;
+    font-size: 9rem;
+    margin-top: 200px;
+    font-family: "Caveat", cursive;
+}
+.buttonText{
+    background: #006289;
+    color: #FFFFFF;
+    padding: 2px 80px;    
+    font-size: 4em;
+    font-family: "Roboto", sans-serif;
+    border-radius: 100px;
+    margin-top: 750px;
+}
+.description{
+    color: #363763;
+    padding: 2px 80px;    
+    font-size: 2em;
+    width: 90%;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    margin-top: 50px;
+}
+.slidersContainer{
+    color: black; 
+
+}
+.teszt{
+    color: black;
+}
