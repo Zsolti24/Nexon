@@ -88,34 +88,36 @@ export default function HomePage() {
 
   return (
     <>
-        <div className="homePage">
-            <div className="pageTitle">
-                AZ AJÁNDÉK KÖZÖS
-            </div>
-            <div className="buttonText">
-                Döntsünk róla együtt
-            </div>
-            <div className="description">
-                A szánkópályán minden beosztás 250 ezer forintot jelent. Húzza a szánkót aszerint, ahogyan Ön osztaná el az adományt az alapítványok között. A kiválasztott arányokat végül egyesítjük, s ennek megfelelően osztjuk szét a felajánlott összeget a négy szervezet között. Miután végzett, az "Elküldöm" gombra kattintva véglegesítse döntését.
-            </div>
-            <div className="slidersContainer">
+        <div className="entire">
+            <div className="homePage">
+                <div className="pageTitle">
+                    AZ AJÁNDÉK KÖZÖS
+                </div>
+                <div className="buttonText">
+                    Döntsünk róla együtt
+                </div>
+                <div className="description">
+                    A szánkópályán minden beosztás 250 ezer forintot jelent. Húzza a szánkót aszerint, ahogyan Ön osztaná el az adományt az alapítványok között. A kiválasztott arányokat végül egyesítjük, s ennek megfelelően osztjuk szét a felajánlott összeget a négy szervezet között. Miután végzett, az "Elküldöm" gombra kattintva véglegesítse döntését.
+                </div>
+                <div className="slidersContainer">
 
-                {names.map((name, i) => (
-                    <Scomponent key={i} 
-                    index={i} money={money} 
-                    setValue={setValue} name={name} 
-                    foundationDescription={foundationDescription[i]}
-                    sum = {sum}
-                    />
-                ))}
+                    {names.map((name, i) => (
+                        <Scomponent key={i} 
+                        index={i} money={money} 
+                        setValue={setValue} name={name} 
+                        foundationDescription={foundationDescription[i]}
+                        sum = {sum}
+                        />
+                    ))}
+                </div>
+                <div className="sendButtons">
+                    <div className="resetBtn" onClick={handleReset}>VISSZÁLLÍTÁS</div>
+                    <div className={sum === 3000000 ? "sendBtn sendable" : "sendBtn" }>ELKÜLDÖM</div>
+                </div>
             </div>
-            <div className="endButtons">
-                <div className="resetBtn" onClick={handleReset}>VISSZÁLLÍTÁS</div>
-                <div className={sum === 3000000 ? "sendBtn sendable" : "sendBtn" }>ELKÜLDÖM</div>
+            <div className="bImgContainer">
+                <img src='../images/bg.png' alt="img" className='bImg'/>
             </div>
-        </div>
-        <div className="bImgContainer">
-            <img src='../images/bg.png' alt="img" className='bImg'/>
         </div>
     </>
   )
