@@ -1,9 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Scomponent from "../components/SliderComponent"
 
 export default function HomePage() {
 
     const [money, setValue] = useState([0, 0, 0, 0]);
+    const [sum, setSum] = useState(0);
+
+    useEffect(() => {
+        const totalSum = money.reduce((acc, num) => acc + num, 0);
+        setSum(totalSum);
+      }, [money]);
 
     const [names, setNames] = useState(["AUTIZMUS ALAPÍTVÁNY","LÁMPÁS `92 ALAPÍTVÁNY","NOÉ ÁLLATOTTHON ALAPÍTVÁNY","SZENT ISTVÁN KIRÁLY ZENEI ALAPÍTVÁNY"]);
     const [foundationDescription, setfoundationDescription] = useState(["Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec volutpat magna. Etiam ut felis enim. Etiam id nisi quis magna pulvinar tempus. Aliquam pellentesque lacus nunc, sed viverra quam sagittis a. Etiam quis accumsan neque. Pellentesque condimentum est hendrerit, lacinia metus ut, rhoncus metus. Aenean lobortis suscipit cursus. Aenean elit magna, lobortis ac ligula auctor, mollis suscipit sapien. Praesent nec tempor diam.In fringilla pulvinar aliquam. Mauris vel risus id orci pellentesque consectetur. Ut rhoncus tortor elit, vitae hendrerit neque sodales sed. Mauris placerat id nulla nec suscipit. Sed imperdiet risus id faucibus hendrerit. Integer ac tortor dui. Nulla posuere massa lacus, ut vehicula nibh rutrum eu. Aenean eu justo ac ligula convallis molestie. Ut neque tortor, tincidunt a luctus et, faucibus in felis. Aliquam vel nunc et sem consequat rhoncus sed nec justo. Suspendisse hendrerit, arcu tincidunt tincidunt auctor, ipsum urna vulputate eros, ac tempor magna tortor id ante. Vivamus eu rutrum diam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc varius turpis ac odio mollis, non convallis mauris feugiat.","Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec volutpat magna. Etiam ut felis enim. Etiam id nisi quis magna pulvinar tempus. Aliquam pellentesque lacus nunc, sed viverra quam sagittis a. Etiam quis accumsan neque. Pellentesque condimentum est hendrerit, lacinia metus ut, rhoncus metus. Aenean lobortis suscipit cursus. Aenean elit magna, lobortis ac ligula auctor, mollis suscipit sapien. Praesent nec tempor diam.In fringilla pulvinar aliquam. Mauris vel risus id orci pellentesque consectetur. Ut rhoncus tortor elit, vitae hendrerit neque sodales sed. Mauris placerat id nulla nec suscipit. Sed imperdiet risus id faucibus hendrerit. Integer ac tortor dui. Nulla posuere massa lacus, ut vehicula nibh rutrum eu. Aenean eu justo ac ligula convallis molestie. Ut neque tortor, tincidunt a luctus et, faucibus in felis. Aliquam vel nunc et sem consequat rhoncus sed nec justo. Suspendisse hendrerit, arcu tincidunt tincidunt auctor, ipsum urna vulputate eros, ac tempor magna tortor id ante. Vivamus eu rutrum diam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc varius turpis ac odio mollis, non convallis mauris feugiat.","Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec volutpat magna. Etiam ut felis enim. Etiam id nisi quis magna pulvinar tempus. Aliquam pellentesque lacus nunc, sed viverra quam sagittis a. Etiam quis accumsan neque. Pellentesque condimentum est hendrerit, lacinia metus ut, rhoncus metus. Aenean lobortis suscipit cursus. Aenean elit magna, lobortis ac ligula auctor, mollis suscipit sapien. Praesent nec tempor diam.In fringilla pulvinar aliquam. Mauris vel risus id orci pellentesque consectetur. Ut rhoncus tortor elit, vitae hendrerit neque sodales sed. Mauris placerat id nulla nec suscipit. Sed imperdiet risus id faucibus hendrerit. Integer ac tortor dui. Nulla posuere massa lacus, ut vehicula nibh rutrum eu. Aenean eu justo ac ligula convallis molestie. Ut neque tortor, tincidunt a luctus et, faucibus in felis. Aliquam vel nunc et sem consequat rhoncus sed nec justo. Suspendisse hendrerit, arcu tincidunt tincidunt auctor, ipsum urna vulputate eros, ac tempor magna tortor id ante. Vivamus eu rutrum diam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc varius turpis ac odio mollis, non convallis mauris feugiat.","Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec volutpat magna. Etiam ut felis enim. Etiam id nisi quis magna pulvinar tempus. Aliquam pellentesque lacus nunc, sed viverra quam sagittis a. Etiam quis accumsan neque. Pellentesque condimentum est hendrerit, lacinia metus ut, rhoncus metus. Aenean lobortis suscipit cursus. Aenean elit magna, lobortis ac ligula auctor, mollis suscipit sapien. Praesent nec tempor diam.In fringilla pulvinar aliquam. Mauris vel risus id orci pellentesque consectetur. Ut rhoncus tortor elit, vitae hendrerit neque sodales sed. Mauris placerat id nulla nec suscipit. Sed imperdiet risus id faucibus hendrerit. Integer ac tortor dui. Nulla posuere massa lacus, ut vehicula nibh rutrum eu. Aenean eu justo ac ligula convallis molestie. Ut neque tortor, tincidunt a luctus et, faucibus in felis. Aliquam vel nunc et sem consequat rhoncus sed nec justo. Suspendisse hendrerit, arcu tincidunt tincidunt auctor, ipsum urna vulputate eros, ac tempor magna tortor id ante. Vivamus eu rutrum diam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc varius turpis ac odio mollis, non convallis mauris feugiat."]);
@@ -23,8 +29,16 @@ export default function HomePage() {
             <div className="slidersContainer">
 
                 {names.map((name, i) => (
-                    <Scomponent key={i} index={i} money={money} setValue={setValue} name={name} foundationDescription={foundationDescription[i]}/>
+                    <Scomponent key={i} 
+                    index={i} money={money} 
+                    setValue={setValue} name={name} 
+                    foundationDescription={foundationDescription[i]}
+                    />
                 ))}
+            </div>
+            <div className="endButtons">
+                <div className="resetBtn">VISSZÁLLÍTÁS</div>
+                <div className={sum === 3000000 ? "sendBtn sendable" : "sendBtn" }>ELKÜLDÖM</div>
             </div>
         </div>
         <div className="bImgContainer">

@@ -21,7 +21,17 @@ const marks = [
 ];
 
 export default function SliderComponent({ index, money, setValue, name, foundationDescription }) {
+  const [popUpClicked, setPopUpClicked] = useState(false);
   const [val, setVal] = useState(MIN);
+
+  const handlePop = () =>{
+    setPopUpClicked(true);
+
+  }  
+  const closePop = () =>{
+    setPopUpClicked(false);
+  }
+
 
   const handleChange = (_, newValue) => {
     setVal(newValue);
@@ -79,7 +89,7 @@ export default function SliderComponent({ index, money, setValue, name, foundati
         <div className="trackImgContainer">
           <img src={`../../public/images/ho${index +1 }.png`} className='trackImg'/>
           <div className="onTrackPart">
-            <img src={`../../public/images/infBtns.png`} className='infoButtons'/>
+            <img src={`../../public/images/infBtns.png`} className='infoButtons' onClick={handlePop}/>
             <div className="FName">{name}</div>
           </div>
         </div>
@@ -96,6 +106,13 @@ export default function SliderComponent({ index, money, setValue, name, foundati
           </Typography>
         </Box>
       </Box>
+      <div className={popUpClicked ? "popUpDescription popUpDescriptionActive" : "popUpDescription"}>
+        <div className="xbutton" onClick={closePop}>
+          <img src="../../public/images/xIcon.png" alt="" className='xbtn'/>
+        </div>
+          <div className="foundName">{name}</div>
+          <div className="foundDesc">{foundationDescription}</div>
+      </div>
     </div>
   );
 }

@@ -47,3 +47,37 @@
     margin-top: 50px;
     margin-bottom: 10px;
 }
+
+.endButtons{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.sendBtn{
+    padding: 5px 50px;
+    text-align: center;
+    background: #8CAAB5;
+    color: #ffffff;
+    border: 3px solid #ffffff;
+    border-radius: 20px;
+    font-size: 1.5em;
+    font-family: "Roboto", sans-serif;  
+    font-weight: bold;
+}
+.sendable{
+    background: #14A351;
+    cursor: pointer;
+}
+.resetBtn{
+    padding: 5px 50px;
+    text-align: center;
+    background: #78909C;
+    color: #E3F6FC;
+    border: 3px solid #E3F6FC;
+    border-radius: 20px;
+    font-size: 1.5em;
+    font-family: "Roboto", sans-serif;  
+    font-weight: bold;
+}
