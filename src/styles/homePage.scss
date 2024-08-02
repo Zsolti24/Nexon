@@ -1,4 +1,6 @@
+@use './style.scss';
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 .homePage{
     position: relative;
     display: flex;
@@ -29,14 +31,14 @@
     color: #006289;
     font-size: 9rem;
     margin-top: 200px;
-    font-family: "Caveat", cursive;
+    font-family: 'topFont';
 }
 .buttonText{
     background: #006289;
     color: #FFFFFF;
     padding: 2px 80px;    
     font-size: 4em;
-    font-family: "Roboto", sans-serif;
+    font-family: "customFont", sans-serif;
     border-radius: 100px;
     margin-top: 650px;
 }
@@ -46,7 +48,7 @@
     font-size: 2em;
     width: 90%;
     text-align: center;
-    font-family: "Roboto", sans-serif;
+    font-family: "customFont", sans-serif;
     margin-top: 50px;
     margin-bottom: 10px;
 }
@@ -66,7 +68,7 @@
     border: 3px solid #ffffff;
     border-radius: 20px;
     font-size: 1.5em;
-    font-family: "Roboto", sans-serif;  
+    font-family: "customFont", sans-serif;  
     font-weight: bold;
 }
 .sendable{
@@ -81,7 +83,7 @@
     border: 3px solid #E3F6FC;
     border-radius: 20px;
     font-size: 1.5em;
-    font-family: "Roboto", sans-serif;  
+    font-family: "customFont", sans-serif;  
     font-weight: bold;
     cursor: pointer;
 }

@@ -2,9 +2,29 @@ import React, { useEffect, useState } from 'react';
 
 import { PieChart, Pie, Tooltip, Cell } from 'recharts'; 
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { DataGrid } from '@mui/x-data-grid';
 
 export default function DevPage() {
+
+  const [foundations,setFoundations] = useState(["AUTIZMUS ALAPÍTVÁNY","LÁMPÁS `92 ALAPÍTVÁNY","NOÉ ÁLLATOTTHON ALAPÍTVÁNY","SZENT ISTVÁN KIRÁLY ZENEI ALAPÍTVÁNY"]) 
+
+
+  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+    const RADIAN = Math.PI / 180;
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+  
+    return (
+      <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+        {`${(percent * 100).toFixed(0)}%`}
+      </text>
+    );
+  };
+  
 
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
@@ -36,10 +56,10 @@ export default function DevPage() {
     { field: 'id', headerName: 'ID', type: 'number', width: 70 },
     { field: 'ip', headerName: 'Ip', width: 200 },
     { field: 'time', headerName: 'Time', width: 300 },
-    { field: 'foundation1',headerName: 'Foundation1', type: 'number', width: 200,},
-    { field: 'foundation2',headerName: 'Foundation2', type: 'number', width: 200,},
-    { field: 'foundation3',headerName: 'Foundation3', type: 'number', width: 200,},
-    { field: 'foundation4',headerName: 'Foundation4', type: 'number', width: 200,},
+    { field: 'foundation1',headerName: foundations[0], type: 'number', width: 200,},
+    { field: 'foundation2',headerName: foundations[1], type: 'number', width: 250,},
+    { field: 'foundation3',headerName: foundations[2], type: 'number', width: 350,},
+    { field: 'foundation4',headerName: foundations[3], type: 'number', width: 350,},
   ];
   
   const rows =  data.map(row => ({
@@ -63,24 +83,36 @@ export default function DevPage() {
 
 
   const pieData = [
-    { id: 0, value: toltalSumFound1, label: 'Foundation1' },
-    { id: 1, value: toltalSumFound2, label: 'Foundation2' },
-    { id: 2, value: toltalSumFound3, label: 'Foundation3' },
-    { id: 3, value: toltalSumFound4, label: 'Foundation4' },
+    { id: 0, value: toltalSumFound1, label: foundations[0] },
+    { id: 1, value: toltalSumFound2, label: foundations[1] },
+    { id: 2, value: toltalSumFound3, label: foundations[2] },
+    { id: 3, value: toltalSumFound4, label: foundations[3] },
   ];
+
+
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#DDCC11'];
+
+
+  const notify = () => {
+    toast("Wow so easy!");
+    console.log("asd");
+  }
+
 
   const CustomPieChart = ({ series }) => {
     return (
-      <PieChart width={400} height={200}>
+      <PieChart width={1500} height={600}> 
         <Pie
-          data={series[0].data}
-          dataKey="value"
-          nameKey="label"
-          cx="50%"
-          cy="50%"
-          outerRadius={80}
-          fill="#8884d8"
+        data={series[0].data}
+        dataKey="value"
+        nameKey="label"
+        cx="50%"
+        cy="50%"
+        outerRadius={"250px"}
+        fill="#8884d8"
+        
+        labelLine={false}
+        label={renderCustomizedLabel}
         >
           {series[0].data.map((entry, index) => (
             <Cell key={entry.id} fill={COLORS[index % COLORS.length]} />
@@ -108,33 +140,48 @@ export default function DevPage() {
         }}
         pageSizeOptions={[10]}
       />
-      <div  style={{ fontSize: '40px',padding: '20px' }}>
-        Total number of submitted requests: {data.length}
+      <div className="logData">
+        <div className='requestedData'>
+          Total number of submitted requests: {data.length}
         </div>
-      <div  style={{ fontSize: '40px',padding: '20px'  }}>
-        Total number of donation to Foundation 1: {toltalSumFound1}
+        <div className='requestedData' onClick={notify}>
+          Legfrisebb: {latestTime.toISOString()}
+        </div>
+        <div className='requestedData'>
+          Total number of donation to
+          <div className='fnameDiv'>
+            {foundations[0]}: {toltalSumFound1}
+          </div>
+        </div >
+        <div className='requestedData'>
+        Total number of donation to
+          <div className='fnameDiv'> 
+            {foundations[1]}: {toltalSumFound1}
+          </div>
+        </div>
+        <div className='requestedData'>
+        Total number of donation to
+          <div className='fnameDiv'>
+            {foundations[2]}: {toltalSumFound1}
+          </div> 
+        </div>
+        <div className='requestedData'>
+        Total number of donation to
+          <div className='fnameDiv'>
+            {foundations[3]}: {toltalSumFound1}
+          </div> 
+        </div>
       </div>
-      <div  style={{ fontSize: '40px',padding: '20px'  }}>
-        Total number of donation to Foundation 2: {toltalSumFound2}
+      <div className='pite'>
+        <CustomPieChart
+          series={[
+            {
+              data: pieData,
+            },
+          ]}
+        />
       </div>
-      <div  style={{ fontSize: '40px',padding: '20px'  }}>
-        Total number of donation to Foundation 3: {toltalSumFound3}
-      </div>
-      <div  style={{ fontSize: '40px',padding: '20px'  }}>
-        Total number of donation to Foundation 4: {toltalSumFound4}
-      </div>
-      <div  style={{ fontSize: '40px',padding: '20px'  }}>
-        Legfrisebb: {latestTime.toISOString()}
-      </div>
-
-      <CustomPieChart
-        series={[
-          {
-            data: pieData,
-          },
-        ]}
-      />
-
+      <ToastContainer />
     </>
   )
 }

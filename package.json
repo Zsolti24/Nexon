@@ -12,22 +12,26 @@
   "dependencies": {
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
+    "@googleapis/docs": "^3.0.2",
     "@mui/material": "^5.16.6",
     "@mui/styled-engine-sc": "^6.0.0-alpha.18",
     "@mui/x-data-grid": "^7.12.0",
     "axios": "^1.7.2",
     "buffer": "^6.0.3",
+    "dotenv": "^16.4.5",
     "EventEmitter": "^1.0.0",
     "eventemitter3": "^5.0.1",
     "google-auth-library": "^9.13.0",
-    "googleapis": "^140.0.1",
+    "googleapis": "^39.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-notifications": "^1.7.4",
     "react-router-dom": "^6.25.1",
+    "react-toastify": "^10.0.5",
     "recharts": "^2.12.7",
     "sass": "^1.77.8",
-    "styled-components": "^6.1.12"
+    "styled-components": "^6.1.12",
+    "webpack": "^5.93.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
