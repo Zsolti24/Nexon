@@ -28,7 +28,7 @@ export default function DevPage() {
 
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
-  const spreadsheetId = '1pABahPAWuWWlwir4vABJ5oPXmmlgZfawpXx5m3_uOlc';
+  const spreadsheetId = '1v-LGDX8pRgPLwCNjIsHVB6XtIM6z_ed02T2bD4Tm6uw';
   const range = 'Sheet1!A1:G';
   
   useEffect(() => {
