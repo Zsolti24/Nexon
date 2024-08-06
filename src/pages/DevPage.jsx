@@ -7,10 +7,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { DataGrid } from '@mui/x-data-grid';
 
+import { names } from '../constans/constans';
+
+
+
 export default function DevPage() {
-
-  const [foundations,setFoundations] = useState(["AUTIZMUS ALAPÍTVÁNY","LÁMPÁS `92 ALAPÍTVÁNY","NOÉ ÁLLATOTTHON ALAPÍTVÁNY","SZENT ISTVÁN KIRÁLY ZENEI ALAPÍTVÁNY"]) 
-
 
   const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
     const RADIAN = Math.PI / 180;
@@ -56,10 +57,10 @@ export default function DevPage() {
     { field: 'id', headerName: 'ID', type: 'number', width: 70 },
     { field: 'ip', headerName: 'Ip', width: 200 },
     { field: 'time', headerName: 'Time', width: 300 },
-    { field: 'foundation1',headerName: foundations[0], type: 'number', width: 200,},
-    { field: 'foundation2',headerName: foundations[1], type: 'number', width: 250,},
-    { field: 'foundation3',headerName: foundations[2], type: 'number', width: 350,},
-    { field: 'foundation4',headerName: foundations[3], type: 'number', width: 350,},
+    { field: 'foundation1',headerName: names[0], type: 'number', width: 200,},
+    { field: 'foundation2',headerName: names[1], type: 'number', width: 250,},
+    { field: 'foundation3',headerName: names[2], type: 'number', width: 350,},
+    { field: 'foundation4',headerName: names[3], type: 'number', width: 350,},
   ];
   
   const rows =  data.map(row => ({
@@ -83,10 +84,10 @@ export default function DevPage() {
 
 
   const pieData = [
-    { id: 0, value: toltalSumFound1, label: foundations[0] },
-    { id: 1, value: toltalSumFound2, label: foundations[1] },
-    { id: 2, value: toltalSumFound3, label: foundations[2] },
-    { id: 3, value: toltalSumFound4, label: foundations[3] },
+    { id: 0, value: toltalSumFound1, label: names[0] },
+    { id: 1, value: toltalSumFound2, label: names[1] },
+    { id: 2, value: toltalSumFound3, label: names[2] },
+    { id: 3, value: toltalSumFound4, label: names[3] },
   ];
 
 
@@ -95,7 +96,6 @@ export default function DevPage() {
 
   const notify = () => {
     toast("Wow so easy!");
-    console.log("asd");
   }
 
 
@@ -150,25 +150,25 @@ export default function DevPage() {
         <div className='requestedData'>
           Total number of donation to
           <div className='fnameDiv'>
-            {foundations[0]}: {toltalSumFound1}
+            {names[0]}: {toltalSumFound1}
           </div>
         </div >
         <div className='requestedData'>
         Total number of donation to
           <div className='fnameDiv'> 
-            {foundations[1]}: {toltalSumFound1}
+            {names[1]}: {toltalSumFound2}
           </div>
         </div>
         <div className='requestedData'>
         Total number of donation to
           <div className='fnameDiv'>
-            {foundations[2]}: {toltalSumFound1}
+            {names[2]}: {toltalSumFound3}
           </div> 
         </div>
         <div className='requestedData'>
         Total number of donation to
           <div className='fnameDiv'>
-            {foundations[3]}: {toltalSumFound1}
+            {names[3]}: {toltalSumFound4}
           </div> 
         </div>
       </div>

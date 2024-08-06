@@ -3,11 +3,11 @@ import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import Typography from '@mui/material/Typography';
 
+import { MAX,MIN,step } from '../constans/constans';
+
+
 import sled from '../../public/images/sled.png';
 
-const MAX = 3000000;
-const MIN = 0;
-const step = 250000;
 
 const marks = [
   {
